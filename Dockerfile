@@ -10,14 +10,15 @@ RUN apt update && \
     nano \
     openssh-client \
     tmate \
-    procps && \
+    procps \
+    iptables \          # Required for Tailscale
+    kmod &&             # For kernel modules (tun)
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN curl -fsSL https://tailscale.com/install.sh | sh
+
 WORKDIR /root
-
 COPY start.sh .
-
 RUN chmod +x start.sh
-
-CMD ["./start.sh"]
+ENTRYPOINT ["./start.sh"]

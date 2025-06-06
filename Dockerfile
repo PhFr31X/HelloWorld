@@ -11,8 +11,8 @@ RUN apt update && \
     openssh-client \
     tmate \
     procps \
-    iptables \          # Required for Tailscale
-    kmod &&             # For kernel modules (tun)
+    iptables \
+    kmod &&
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 

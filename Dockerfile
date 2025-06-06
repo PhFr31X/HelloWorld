@@ -12,7 +12,7 @@ RUN apt update && \
     tmate \
     procps \
     iptables \
-    kmod &&
+    kmod && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
